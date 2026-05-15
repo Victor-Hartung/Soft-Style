@@ -27,10 +27,13 @@ Landing page profissional para a Maison Lumière — uma casa de moda brasileira
 
 ### Configurações no painel do Cloudflare Pages
 
+> **Importante:** expanda a seção **"Advanced"** ao configurar o projeto para ver o campo "Install command".
+
 | Campo | Valor |
 |---|---|
 | **Framework preset** | None |
-| **Build command** | `pnpm install && pnpm --filter @workspace/maison-landing run build:cf` |
+| **Install command** | `pnpm install --no-frozen-lockfile` |
+| **Build command** | `pnpm --filter @workspace/maison-landing run build:cf` |
 | **Build output directory** | `artifacts/maison-landing/dist` |
 | **Root directory** | `/` (deixar vazio / padrão) |
 
@@ -39,15 +42,23 @@ Landing page profissional para a Maison Lumière — uma casa de moda brasileira
 | Variável | Valor |
 |---|---|
 | `NODE_VERSION` | `22` |
+| `PNPM_VERSION` | `10.11.1` |
 
 ### Passo a passo
 
 1. Faça push do repositório para o GitHub
 2. Acesse [pages.cloudflare.com](https://pages.cloudflare.com) → **Create a project** → **Connect to Git**
 3. Selecione o repositório
-4. Preencha as configurações da tabela acima
-5. Adicione a variável de ambiente `NODE_VERSION=22`
-6. Clique em **Save and Deploy**
+4. Clique em **"Advanced"** para expandir as opções extras
+5. Preencha **Install command**, **Build command** e **Build output directory** conforme a tabela acima
+6. Adicione as variáveis de ambiente `NODE_VERSION=22` e `PNPM_VERSION=10.11.1`
+7. Clique em **Save and Deploy**
+
+Se o projeto já estava criado, vá em **Settings → Builds & deployments → Build configuration → Edit** e atualize os campos.
+
+### Por que o erro acontece
+
+O Cloudflare Pages executa `pnpm install --frozen-lockfile` automaticamente, mas a versão do pnpm deles (10.11.1) interpreta as overrides do `pnpm-workspace.yaml` de forma diferente da versão local (10.26.1), causando mismatch. Definir `--no-frozen-lockfile` no Install command resolve isso definitivamente.
 
 ### Observações importantes
 
