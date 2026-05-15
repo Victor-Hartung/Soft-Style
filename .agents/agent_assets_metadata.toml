@@ -1,0 +1,32 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "GsIyTV-RUMJ_8F9j5HkcZ"
+uri = "file://artifacts/maison-landing/public/images/atelier-hero.png"
+type = "image"
+title = "sun-drenched atelier interior"
+
+[[generated]]
+id = "u-soptud6AWByPrvDR6wN"
+uri = "file://artifacts/maison-landing/public/images/collection-eclat.png"
+type = "image"
+title = "tailored blazer closeup"
+
+[[generated]]
+id = "VYGJwg65L2O2kYbsRbZDU"
+uri = "file://artifacts/maison-landing/public/images/collection-ombra.png"
+type = "image"
+title = "dark winter coat detail"
+
+[[generated]]
+id = "s8Tbnkf4deoDK47nVmp3c"
+uri = "file://artifacts/maison-landing/public/images/craft-materials.png"
+type = "image"
+title = "fabric rolls and tailoring tools"
+
+[[generated]]
+id = "ne5Z_xDrIFfHVjTRzQVSv"
+uri = "file://artifacts/maison-landing/public/images/bespoke-services.png"
+type = "image"
+title = "styling consultation room"
